@@ -1,0 +1,18 @@
+---
+import Header from '../components/header.astro';
+const { children } =  Astro.props
+---
+<html>
+  <head>
+    <title>My Astro Site</title>
+    <link rel="stylesheet" href="../">
+  </head>
+  <body>
+    <!-- Include the Header component -->
+    <Header />
+    <main>
+      {children}
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+// Define color variables
+$primary-color: #007BFF;
+$background-color: #f8f9fa;
+$text-color: #333;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Container
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+// Blog Section
+.blogs {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: lighten($background-color, 5%);
+  border: 1px solid darken($background-color, 10%);
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blog-post {
+  padding: 1rem;
+  border: 1px solid darken($background-color, 10%);
+  border-radius: 8px;
+  background-color: #ffffff;
+
+  h3 {
+    margin: 0 0 0.5rem;
+    color: $primary-color;
+  }
+
+  p {
+    margin: 0;
+    color: darken($text-color, 20%);
+  }
+}

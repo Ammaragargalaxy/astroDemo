@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import profileImage from '../assets/images/profile.jpg?url';
+// Define the Blog type
+interface Blog {
+  id: number;
+  title: string;
+  body: string;
+}
+// Fetch blog data from a free API
+const blogAPI = 'https://jsonplaceholder.typicode.com/posts?_limit=5';
+const response = await fetch(blogAPI);
+const blogs = await response.json();
+---
+<BaseLayout>
+	<div class="container">
+		<div class="content">
+		  <!-- Left Image -->
+		  <div class="image-container">
+			<img src={profileImage} alt="Example Image" class="profileImage"/>
+		  </div>
+	  
+		  <!-- Right Text -->
+		  <div class="text-content">
+			<h1>Welcome to Our Homepage</h1>
+			<p>
+			  This is a demo paragraph. Here, you can add a description of your site
+			  or any text to engage the users. Make it brief, clear, and impactful!
+			</p>
+		  </div>
+		</div>
+	  </div>
+	   <!-- Blog Section -->
+	   <section class="blogs">
+		<h2>This Are The Blog Posts</h2>
+		<div class="blog-list">
+		  {blogs.map((blog: Blog) => (
+			<article class="blog-post">
+			  <h3>{blog.title}</h3>
+			  <p>{blog.body}</p>
+			</article>
+		  ))}
+		</div>
+	  </section>
+</BaseLayout>
